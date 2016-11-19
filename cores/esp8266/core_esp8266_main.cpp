@@ -51,7 +51,7 @@ const char* core_release =
 #endif
 } // extern "C"
 
-int atexit(void (*func)()) {
+int atexit(void (*func)() __attribute__((unused))) {
     return 0;
 }
 
@@ -124,7 +124,7 @@ static void loop_wrapper() {
     esp_schedule();
 }
 
-static void loop_task(os_event_t *events) {
+static void loop_task(os_event_t *events __attribute__((unused))) {
     g_micros_at_task_start = system_get_time();
     cont_run(&g_cont, &loop_wrapper);
     if (cont_check(&g_cont) != 0) {

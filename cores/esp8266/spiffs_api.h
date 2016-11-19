@@ -269,7 +269,7 @@ public:
         : _fs(fs)
         , _fd(fd)
         , _stat({0})
-    , _written(false)
+        , _written(false)
     {
         _getStat();
     }
